@@ -1,0 +1,6 @@
+INDEX VERSION 1.3+/Users/SCQian/Documents/Projects/ShoppingList/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2864752404.index
+3988559172.index
+3835370989.index
+4044443672.index
+2230021632.index
