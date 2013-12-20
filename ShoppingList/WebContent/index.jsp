@@ -7,11 +7,14 @@
 <title>Shopping List</title>
 </head>
 <body>
-	<div id="form">
-		<form id="form-input" action="AddItem" method="post">
+	<div id="forms">
+		<form id="addForm" action="AddItem" method="post">
 			Item: <textarea rows="1" cols="20" name="item"></textarea>
 			Price: <textarea rows="1" cols="20" name="price"></textarea>
 			<input type="submit" value="+ Item" />
+		</form>
+		<form id="displayForm" action="DisplayItem">
+			<input type="submit" value="Display Items" />
 		</form>
 	</div>
 </body>
