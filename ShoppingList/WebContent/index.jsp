@@ -8,10 +8,11 @@
 </head>
 <body>
 	<div id="forms">
-		<form id="addForm" action="AddItem" method="post">
+		<form id="addForm" action="AddItemRemoveItem" method="post">
 			Item: <textarea rows="1" cols="20" name="item"></textarea>
 			Price: <textarea rows="1" cols="20" name="price"></textarea>
-			<input type="submit" value="+ Item" />
+			<input name="buttonType" type="submit" value="+ Item" />
+			<input name="buttonType" type="submit" value="Remove Item" />
 		</form>
 		<form id="displayForm" action="DisplayItem">
 			<input type="submit" value="Display Items" />

@@ -14,10 +14,14 @@
 			int price = Integer.parseInt(request.getParameter("price"));
 			out.println("<p>" + item + " added at $" + price + "</p>");
 		%>
-		<form id="form-input" action="AddItem" method="post">
+		<form id="addForm" action="AddItem" method="post">
 			Item: <textarea rows="1" cols="20" name="item"></textarea>
 			Price: <textarea rows="1" cols="20" name="price"></textarea>
 			<input type="submit" value="+ Item" />
+		</form>
+		
+		<form id="displayForm" action="DisplayItem">
+			<input type="submit" value="Display Items" />
 		</form>
 	</div>
 </body>

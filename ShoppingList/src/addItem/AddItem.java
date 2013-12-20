@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/AddItem")
+@WebServlet("/AddItemRemoveItem")
 public class AddItem extends HttpServlet{
 	
 	public AddItem() {
@@ -30,17 +30,33 @@ public class AddItem extends HttpServlet{
 		ServletContext sContext = getServletContext();
 		DataBaseConnection db = (DataBaseConnection) sContext.getAttribute("dbConnection");
 		String item = request.getParameter("item");
-		int price = Integer.parseInt(request.getParameter("price"));
+		String price = request.getParameter("price");
 		try {
 			db.executeQuery("USE INVENTORY");
-			System.out.println("Switched to Inventory");
-			db.executeQuery("INSERT INTO clothing VALUES(\"" + item + "\", " + price + ")");
-		} catch (SQLException e) {
+		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-		RequestDispatcher dispatch = request.getRequestDispatcher("added.jsp");
-		dispatch.forward(request, response);
+		if (request.getParameter("buttonType").equals("+ Item")) {
+			try {
+				db.executeQuery("INSERT INTO clothing VALUES(\"" + item + "\", " + price + ")");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			RequestDispatcher dispatch = request.getRequestDispatcher("added.jsp");
+			dispatch.forward(request, response);
+		}
+		else if (request.getParameter("buttonType").equals("Remove Item")) {
+			try {
+				db.executeQuery("DELETE FROM clothing WHERE item = \"" + item + "\"");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			RequestDispatcher dispatch = request.getRequestDispatcher("removed.jsp");
+			dispatch.forward(request, response);
+		}
 	}
 	
 	
