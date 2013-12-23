@@ -4,24 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="form">
-		<h1>ADDED.JSP</h1>
-		<%
+	<center id="title"><h1>Shopping List</h1></center><br><br>
+	<%
 			String item = request.getParameter("item");
 			int price = Integer.parseInt(request.getParameter("price"));
-			out.println("<p>" + item + " added at $" + price + "</p>");
-		%>
-		<form id="addForm" action="AddItem" method="post">
+			out.println("<center><p>" + item + " added at $" + price + "</p></center>");
+	%>
+	<div id="forms">
+		<form id="addForm" action="AddItemRemoveItem" method="post">
 			Item: <textarea rows="1" cols="20" name="item"></textarea>
-			Price: <textarea rows="1" cols="20" name="price"></textarea>
-			<input type="submit" value="+ Item" />
-		</form>
-		
+			Price: <textarea rows="1" cols="20" name="price"></textarea><br><br>
+			<center>
+				<input class="btn btn-medium" name="buttonType" type="submit" value="+ Item" />
+				<input class="btn btn-medium" name="buttonType" type="submit" value="Remove Item" />
+			</center>
+		</form><br>
 		<form id="displayForm" action="DisplayItem">
-			<input type="submit" value="Display Items" />
+			<input class="btn btn-medium" type="submit" value="Display Items" />
 		</form>
 	</div>
 </body>

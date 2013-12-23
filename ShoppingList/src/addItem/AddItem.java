@@ -39,7 +39,7 @@ public class AddItem extends HttpServlet{
 		}
 		if (request.getParameter("buttonType").equals("+ Item")) {
 			try {
-				db.executeQuery("INSERT INTO clothing VALUES(\"" + item + "\", " + price + ")");
+				db.executeQuery("INSERT INTO items VALUES(\"" + item + "\", " + price + ")");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,7 +49,7 @@ public class AddItem extends HttpServlet{
 		}
 		else if (request.getParameter("buttonType").equals("Remove Item")) {
 			try {
-				db.executeQuery("DELETE FROM clothing WHERE item = \"" + item + "\"");
+				db.executeQuery("DELETE FROM items WHERE item = \"" + item + "\"");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -18,18 +18,17 @@ public class DataBaseConnection {
 	
 	private void OpenConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");			
 			
 			connection = DriverManager.getConnection
 					( "jdbc:mysql://" + host + "/" + database + "?user=" + user + "&" + "password=" + password);
-			
 			
 		} catch (SQLException e) { 
             // TODO Auto-generated catch block 
             e.printStackTrace(); 
         } 
         catch (ClassNotFoundException e) { 
-            // TODO Auto-generated catch block 
+            System.out.println("Connection Failed");
             e.printStackTrace(); 
         }
 	}
@@ -41,6 +40,7 @@ public class DataBaseConnection {
 	
 	//Allows Execution of a Query
 	public ResultSet executeQuery(String command) throws SQLException{
+		if(connection == null) System.out.println("Connection failed");
 		Statement stmt = connection.createStatement();
 		ResultSet rs = null;
 		if (command.startsWith("SELECT")) {

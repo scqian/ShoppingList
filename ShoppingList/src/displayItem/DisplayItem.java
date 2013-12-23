@@ -24,7 +24,7 @@ public class DisplayItem extends HttpServlet{
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		ServletContext sContext = getServletContext();
+		ServletContext sContext = request.getServletContext();
 		DataBaseConnection db = (DataBaseConnection) sContext.getAttribute("dbConnection");
 		Map<String, Integer> mp = new HashMap<String, Integer>();
 		try {
